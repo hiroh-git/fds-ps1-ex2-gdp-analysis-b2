@@ -21,7 +21,7 @@ def load_api_gdp_data(is_real: bool) -> pd.DataFrame:
     """
     key = "real" if is_real else "nominal"
     indicator = IDs[key]
-    df = wb.data.DataFrame(indicator, COUNTRIES, time=range(START_YEAR, END_YEAR))
+    df = wb.data.DataFrame(indicator, COUNTRIES, time=range(START_YEAR, END_YEAR + 1))
 
     df = df.reset_index()
 

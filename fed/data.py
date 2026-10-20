@@ -59,6 +59,9 @@ def save_gdp_data(df: pd.DataFrame, is_real: bool):
 
 
 def clean_gdp_data(df):
+    """
+    Cleans and transforms the GDP data for analysis.
+    """
     # Melt
     df_cleaned = df.melt(id_vars=["economy"], var_name="year", value_name="gdp")
 
@@ -77,4 +80,5 @@ def clean_gdp_data(df):
     # Sort by country and year
     df_cleaned = df_cleaned.sort_values(by=["country", "year"])
     df_cleaned = df_cleaned.reset_index(drop=True)
+
     return df_cleaned
